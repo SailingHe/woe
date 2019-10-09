@@ -21,7 +21,7 @@
 #' # Use varlist() function to get all numeric variables
 #' iv.mult(german_data,y="gb",vars=varlist(german_data,"numeric"))
 
-iv.mult <- function(df,y,summary=FALSE,vars=NULL,verbose=FALSE,rcontrol=NULL) {
+iv.mult <- function(df,y,summary=FALSE,vars=NULL,verbose=FALSE,rcontrol=NULL, naomit=FALSE) {
   if(verbose) {
     cat(paste("Started processing of data frame:", deparse(substitute(df)),"\n"))
   }
@@ -33,10 +33,10 @@ iv.mult <- function(df,y,summary=FALSE,vars=NULL,verbose=FALSE,rcontrol=NULL) {
   ivlist <- lapply(vars, function (x) {
       if(is.numeric(df[,x])) {
         if (verbose) cat(paste("Calling iv.num for variable:", x, "\n"))
-        iv.num(df,x,y,verbose=verbose,rcontrol=rcontrol)
+        iv.num(df,x,y,verbose=verbose,rcontrol=rcontrol, naomit=naomit)
       } else {
         if (verbose) cat(paste("Calling iv.str for variable:", x, "\n"))
-        iv.str(df,x,y,verbose=verbose)  
+        iv.str(df,x,y,verbose=verbose, naomit=naomit)  
       }
     }
                   )
