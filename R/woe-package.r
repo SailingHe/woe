@@ -5,7 +5,7 @@
 #' Information Value:
 #' \deqn{IV = \Sigma_{i=1}^{n}(\ln(\frac{\%good_i}{\%bad_i})*(\%good_i - \%bad_i))}
 #' @docType package
-#' @name woe
+#' @name woe_self
 #' @import ggplot2 
 #' @importFrom plyr rbind.fill
 #' @importFrom RColorBrewer brewer.pal
