@@ -11,7 +11,7 @@
 #' iv.str(german_data,"purpose","gb")
 #' iv.str(german_data,"savings","gb")
 
-iv.str <- function(df,x,y,verbose=FALSE, naomit=TRUE) {
+  iv.str <- function(df,x,y,verbose=FALSE, naomit=FALSE) {
   if (!(class(df)=="data.frame")) {
     stop("Parameter df has to be a data frame.")
   } 
