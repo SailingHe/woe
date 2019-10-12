@@ -13,7 +13,7 @@
 #' iv.num(german_data,"age","gb")
 #' iv.num(german_data,"age","gb")
 
-iv.num <- function(df,x,y,verbose=FALSE,rcontrol=NULL, naomit=TRUE) {
+iv.num <- function(df,x,y,verbose=FALSE,rcontrol=NULL, naomit=FALSE) {
 
   if(verbose) cat("  Building rpart model",sep="\n")
   #rcontrol <- ifelse(is.null(rcontrol),rpart.control(cp=0.001,minbucket=nrow(df)/10),rcontrol)
