@@ -39,16 +39,9 @@ iv.num <- function(df,x,y,verbose=FALSE,rcontrol=NULL, naomit=FALSE) {
                   join model_frame mf using (node_id)        
                   join tree_rules tr using (tree_node)")
   t$tmp_iv_calc_label <- factor(t$tmp_iv_calc_label)
-
+  
   if(verbose) cat("    DF Merge",sep="\n")
-  if (sum(is.na(df[,x])>0)) {
-    no_na_row <- rownames(df)[!is.na(df[,x])]
-    rownames(t) = no_na_row
-    df <- merge(df[, c(x,y)], t["tmp_iv_calc_label"], by=0, all=TRUE)
-  }
-  else {
-    df <- merge(df[, c(x,y)], t["tmp_iv_calc_label"], by=0, all=TRUE) 
-  }
+  df <- merge(df, t["tmp_iv_calc_label"], by=0, all=TRUE) # str(df)
   if(verbose) cat("  Calling iv.str for nodes",sep="\n")
   iv_data <- iv.str(df,"tmp_iv_calc_label", y, naomit=naomit)
   
